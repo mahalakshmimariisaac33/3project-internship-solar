@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Planet Gallery</title>
+  <style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    color: white;
+    background-image: url(./b9e721cb7b2a775ab72138ad59431d40.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  h1 {
+    text-align: center;
+    padding: 10px;
+  }
+
+  .search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .search-container input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    width: 300px;
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .gallery a img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid white;
+    transition: transform 0.3s;
+  }
+
+  .gallery a img:hover {
+    transform: scale(1.1);
+  }
+
+  .planet-section {
+    display: none;
+    padding: 40px 20px;
+    border-top: 1px solid gray;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .planet-section:target {
+    display: block;
+  }
+
+  .planet-section img {
+    width: 150px;
+    border-radius: 50%;
+    border: 3px solid white;
+    margin-bottom: 20px;
+  }
+
+  .planet-section h2 {
+    margin-bottom: 10px;
+    font-size: 28px;
+  }
+
+  .planet-section p {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.6;
+  }
+
+  .back {
+    display: inline-block;
+    margin-top: 20px;
+    color: cyan;
+    text-decoration: none;
+  }
+  </style>
+</head>
+<body>
+
+  <h1>Explore the Planets</h1>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search a planet like Mars..." onkeyup="filterPlanets()" />
+  </div>
+
+  <div class="gallery" id="planetGallery">
+    <a href="#mercury" data-name="mercury"><img src="./mercury-royalty-free-image-524287351-1558475300.jpg" alt="Mercury"></a>
+    <a href="#venus" data-name="venus"><img src="./Venus_a00.jpg" alt="Venus"></a>
+    <a href="#earth" data-name="earth"><img src="./planet-1494403454Zmz.jpg" alt="Earth"></a>
+    <a href="#mars" data-name="mars"><img src="mars.jpg" alt="Mars"></a>
+    <a href="#jupiter" data-name="jupiter"><img src="./Jupiter.jpg" alt="Jupiter"></a>
+    <a href="#saturn" data-name="saturn"><img src="./saturn.webp" alt="Saturn"></a>
+    <a href="#uranus" data-name="uranus"><img src="uranas.jpg" alt="Uranus"></a>
+    <a href="#neptune" data-name="neptune"><img src="nep.jpg" alt="Neptune"></a>
+  </div>
+
+  <!-- Planet Descriptions -->
+  <div id="mercury" class="planet-section">
+    <img src="./mercury-royalty-free-image-524287351-1558475300.jpg" alt="Mercury">
+    <h2>Mercury</h2>
+    <p>Mercury is the smallest and closest planet to the Sun. It has a rocky surface and extreme temperature variations.</p>
+    <a class="back" href="#">← Back</a>
+  </div>
+
+  <div id="venus" class="planet-section">
+    <img src="./Venus_a00.jpg" alt="Venus">
+    <h2>Venus</h2>
+    <p>Venus is known for its thick, toxic atmosphere and extreme surface heat due to the greenhouse effect.</p>
+    <a class="back" href="#">← Back</a>
+  </div>
+
+  <div id="earth" class="planet-section">
+    <img src="./planet-1494403454Zmz.jpg" alt="Earth">
+    <h2>Earth</h2>
+    <p>Earth is our home planet and the only one known to support life, with vast oceans and breathable atmosphere.</p>
+    <a class="back" href="#">← Back</a>
+  </div>
+
+  <div id="mars" class="planet-section">
+    <img src="mars.jpg" alt="Mars">
+    <h2>Mars</h2>
+    <p>Mars is a dusty, cold, desert world with signs of ancient water. It’s being explored for future colonization.</p>
+    <a class="back" href="#">← Back</a>
+  </div>
+
+  <div id="jupiter" class="planet-section">
+    <img src="./Jupiter.jpg" alt="Jupiter">
+    <h2>Jupiter</h2>
+    <p>Jupiter is the largest planet in the solar system. It's a gas giant with a giant red storm and many moons.</p>
+    <a class="back" href="#">← Back</a>
+  </div>
+
+  <div id="saturn" class="planet-section">
+    <img src="./saturn.webp" alt="Saturn">
+    <h2>Saturn</h2>
+    <p>Saturn is known for its beautiful ring system made of ice and rock. It's the second-largest planet.</p>
+    <a class="back" href="#">← Back</a>
+  </div>
+
+  <div id="uranus" class="planet-section">
+    <img src="uranas.jpg" alt="Uranus">
+    <h2>Uranus</h2>
+    <p>Uranus is a pale blue gas giant that rotates on its side. It has faint rings and very cold temperatures.</p>
+    <a class="back" href="#">← Back</a>
+  </div>
+
+  <div id="neptune" class="planet-section">
+    <img src="nep.jpg" alt="Neptune">
+    <h2>Neptune</h2>
+    <p>Neptune is a deep blue planet with the strongest winds in the solar system. It's the farthest from the Sun.</p>
+    <a class="back" href="#">← Back</a>
+  </div>
+
+  <script>
+    function filterPlanets() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const gallery = document.getElementById("planetGallery");
+      const planets = gallery.getElementsByTagName("a");
+
+      for (let i = 0; i < planets.length; i++) {
+        const name = planets[i].getAttribute("data-name");
+        if (name.includes(input)) {
+          planets[i].style.display = "inline-block";
+        } else {
+          planets[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>

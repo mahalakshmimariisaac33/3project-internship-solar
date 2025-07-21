@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solar System Website</title>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      
+    }
+
+    body {
+      background-image: url('./Solar-System-3D-HD-Wallpaper.jpg');
+      background-size: cover;
+    
+      background-position: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    nav .logo {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">SolarWorld</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="./planets.html">Planets</a></li>
+      <li><a href="./moons.html">Moons</a></li>
+      <li><a href="./ast.html">Asteroids</a></li>
+      <li><a href="./com.html">comets</a></li>
+      
+    </ul>
+  </nav>
+  <script>
+    window.onload=function()
+    {
+      alert("welcome to my solar page");
+    }
+  </script>
+
+</body>
+</html>
